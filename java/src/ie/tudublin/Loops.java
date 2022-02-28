@@ -4,7 +4,7 @@ import processing.core.PApplet;
 
 public class Loops extends PApplet {
 
-	int mode = 0;
+	int mode = 12, bar;
 	float top, center, wid;
 
 	public void settings() {
@@ -16,6 +16,8 @@ public class Loops extends PApplet {
 		top = 50;
 		center = height / 2.0f;
 		wid = 200;
+		background(0);
+		bar = 10;
 	}
 
 	public void keyPressed() {
@@ -23,28 +25,10 @@ public class Loops extends PApplet {
 			mode = key - '0';
 		}
 		println(mode);
-		background(0);
 	}
 	
 	public void mousePressed(){
-		mode = (mode +1) % 9;
-	}
-	
-	float MagicMap(float i,float a,float b,float c,float d){
-		float output;
-		i -= a;
-		b -= a;
-		d -= c;
-		
-		output = ((i/b)*d) +c;
-		return output;
-		/* 
-		map(a, b, c, d, e){
-			r1 = c - b
-			r2 = e - d
-			return = (((a - b) / r1) * r2) + d
-		}
-		*/
+		mode = (mode +1) % 14;
 	}
 	
 	float magicMap(float a, float b, float c, float d, float e) {
@@ -56,6 +40,13 @@ public class Loops extends PApplet {
 		output = ((a / c) * e) + d;
 		
 		return output;
+		/* 
+		map(a, b, c, d, e){
+			r1 = c - b
+			r2 = e - d
+			return = (((a - b) / r1) * r2) + d
+		}
+		*/
 	}
 
 	float magicMap1(float a, float b, float c, float d, float e) {
@@ -69,28 +60,28 @@ public class Loops extends PApplet {
 	float offset = 0;
 
 	public void draw() {
+		background(0);
 		switch (mode) {
-			case 0:
-			background(0);
-			int bars = (int) (mouseX / 20.0f);
-			float w = width / (float) bars;
-			for (int i = 0; i < bars; i++) {
+			case 0:{ // rainbow bars
+				int changingBars = (int) (mouseX / 20.0f);
+				float w = width / (float) changingBars;
+				for (int i = 0; i < changingBars; i++) {
 					noStroke();
-					fill(map(i, 0, bars, 0, 255), 255, 255);
-					rect(map(i, 0, bars, 0, 500), 0, w, height);
+					fill(map(i, 0, changingBars, 0, 255), 255, 255);
+					rect(map(i, 0, changingBars, 0, 500), 0, w, height);
 				}
 				break;
+			}
 			case 1: 
-			{
-				background(0);
-				int squares = (int) (mouseX / 20.0f);
-				float h = width / (float) squares;
-				for (int i = 0; i < squares; i++) {
+			{ // x Box rainbow
+				int changingBars = (int) (mouseX / 20.0f);
+				float w = width / (float) changingBars;
+				for (int i = 0; i < changingBars; i++) {
 					noStroke();
-					fill(map(i, 0, squares, 0, 255), 255, 255);
-					float x = map(i, 0, squares, 0, width);
-					rect(x, x, h, h);
-					rect((width - h) - x, x, h, h);
+					fill(map(i, 0, changingBars, 0, 255), 255, 255);
+					float x = map(i, 0, changingBars, 0, width);
+					rect(x, x, w, w);
+					rect((width - w) - x, x, w, w);
 				}
 				break;
 				// map(a,b,c,d,e);
@@ -100,9 +91,7 @@ public class Loops extends PApplet {
 			}//end case 1
 			
 			case 2:
-			{
-				background(0);
-				int bar = 10;
+			{ // stacking circles
 				float midx = width / 2;
 				float midy = height / 2;
 				float circles = width / (float) bar;
@@ -114,21 +103,18 @@ public class Loops extends PApplet {
 				break;
 			} // end case 2
 			case 3:
-			{
-				background(0);
-				int rounds = 10;
-				float wid = width / (float) rounds;
-				for (int i = 0; i < rounds; i++) {
+			{ //rainbow circles (single line)
+				float wid = width / (float) bar;
+				for (int i = 0; i < bar; i++) {
 					noStroke();
-					float c = map(i, 0, rounds * 2, 0, 255);
+					float c = map(i, 0, bar * 2, 0, 255);
 					fill(c, 255, 255);
-					circle(map(i, 0, rounds - 1, wid / 2.0f, width - (wid/2.0f)), height / 2, wid);
+					circle(map(i, 0, bar - 1, wid / 2.0f, width - (wid/2.0f)), height / 2, wid);
 				}
 				break;
 			} // end case 3
 			case 4:
-			{
-				background(0);
+			{ // rainbow polkas
 				int circles = (int) (mouseX / 20.0f);
 				offset += (mouseY / 100.0f);
 				float d = width / (float) circles;
@@ -176,6 +162,96 @@ public class Loops extends PApplet {
 					fill(0,255,255);
 				}else{
 					fill(130,255,255);
+				}
+				break;
+			}
+			case 8: {//matrix box
+				float jumpx = width / 12.0f;
+				float jumpy = height/ 12.0f;
+				stroke(200, 255, 255);
+				for(int i = 1, j = -5; i <= bar+1; i++, j++){
+					text(j, jumpx * i, jumpy/2.0f);
+					text(j, jumpx/2.0f, jumpy * i);
+					line(jumpx, jumpy*i, width - jumpx, jumpy*i);
+					line(jumpx*i, jumpy, jumpx*i, height - jumpy);
+				}
+				break;
+			}
+			case 9: {//matrix box v2
+				float border = width *0.1f;
+				for(int i = -5; i <= bar/2; i++){
+					float x = map(i, -5, 5, border, width - border);
+					stroke(100, 255, 255);
+					line(x, border, x, height-border);
+					line(border, x, width - border, x);
+					text(i,x,border*0.5f);
+					text(i,border*0.5f,x);
+					}
+				break;
+			}
+			case 10: {//checker box
+				//elementary cellular automata
+				float jumpx = width / (float) (bar*2);
+				float jumpy = height/ (float) (bar*2);
+				for(int i = 0; i <= (bar*2+1); i++){
+					for(int j = 0; j <= (bar*2); j++){
+						noStroke();
+						float x = jumpx * (float)i;
+						float y = jumpy * (float)j;
+						rect(x,y,jumpx,jumpy);
+						fill(200,255,255);
+						if ((i%2) == (j%2)){
+							fill(20,255,255);
+						}
+					}
+				}
+				break;
+			}
+			case 11: {//polygons
+				int sides = (mouseX / 50);
+				float theta = TWO_PI / (float) sides;
+				float radius = 200;
+				stroke(255);
+				for(int i = 1; i <= sides; i++){
+					float x1 = sin(theta * (i - 1)) * radius;
+					float y1 = cos(theta * (i - 1)) * radius;
+					float x2 = sin(theta * i) * radius;
+					float y2 = cos(theta * i) * radius;
+					line(center + x1, center + y1, center + x2, center + y2);
+				}
+				break;
+			}
+			case 12: {//mushroom circle
+				stroke(255);
+				int sides = (int) map(mouseX, 50, width, 0, 20);
+				float cx = width/2.0f;
+				float cy = height/2.0f;
+				float radius = 200;
+				for(int i = 0; i < sides; i++)
+				{
+					float theta = map(i, 0, sides, 0, TWO_PI);
+					float x = cx + sin(theta) * radius;
+					float y = cy + cos(theta) * radius;
+					circle(x, y, 20);
+				}
+				break;
+			}
+			case 13: {//mushroom circle
+				stroke(255);
+				int sides = (int) map(mouseX, 50, width, 0, 20);
+				float cx = width/2.0f;
+				float cy = height/2.0f;
+				float radius = 200;
+				for(int i = 1; i <= sides; i++)
+				{
+					float theta1 = map(i-1, 0, sides, 0, TWO_PI);
+					float x1 = cx + sin(theta1) * radius;
+					float y1 = cy + cos(theta1) * radius;
+
+					float theta2 = map(i, 0, sides, 0, TWO_PI);
+					float x2 = cx + sin(theta2) * radius;
+					float y2 = cy + cos(theta2) * radius;
+					line(x1,y1,x2,y2);
 				}
 				break;
 			}
