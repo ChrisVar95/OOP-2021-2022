@@ -4,7 +4,7 @@ import processing.core.PApplet;
 
 public class Loops extends PApplet {
 
-	int mode = 12, bar;
+	int mode = 17, bar;
 	float top, center, wid;
 
 	public void settings() {
@@ -28,7 +28,7 @@ public class Loops extends PApplet {
 	}
 	
 	public void mousePressed(){
-		mode = (mode +1) % 14;
+		mode = (mode +1) % 18;
 	}
 	
 	float magicMap(float a, float b, float c, float d, float e) {
@@ -272,7 +272,7 @@ public class Loops extends PApplet {
 				}
 				break;
 			}
-			case 13: {//mushroom circle
+			case 13: {//polygons v2
 				stroke(255);
 				int sides = (int) map(mouseX, 50, width, 0, 20);
 				float cx = width/2.0f;
@@ -287,6 +287,83 @@ public class Loops extends PApplet {
 					float theta2 = map(i, 0, sides, 0, TWO_PI);
 					float x2 = cx + sin(theta2) * radius;
 					float y2 = cy + cos(theta2) * radius;
+					line(x1,y1,x2,y2);
+				}
+				break;
+			}
+			case 14://stroke lines upside down
+			{
+				stroke(255);
+				int sides = 5;
+				float cx = width/2.0f;
+				float cy = height/2.0f;
+				float radius = 200;
+				for(int i = 1; i <= sides; i++)
+				{
+					float theta1 = map(i-1, 0, sides, 0, TWO_PI);
+					float x1 = cx + sin(theta1) * radius;
+					float y1 = cy + cos(theta1) * radius;
+					line(x1,y1,cx,cy);
+				}
+				break;
+			}
+			case 15://stroke lines
+			{
+				stroke(255);
+				int sides = 5;
+				float cx = width/2.0f;
+				float cy = height/2.0f;
+				float radius = 200;
+				for(int i = 1; i <= sides; i++)
+				{
+					float theta1 = map(i, 0, sides, TWO_PI, 0);
+					float x1 = cx - sin(theta1) * radius;
+					float y1 = cy - cos(theta1) * radius;
+					line(x1,y1,cx,cy);
+				}
+				break;
+			}
+			case 16: //star??
+			{
+				
+				stroke(255);
+				float edges = 10;
+				float angle = TWO_PI / edges;
+				int radius1 = 200;
+				int radius2 = 100;
+				float cx = width/2.0f;
+				float cy = height/2.0f;
+				float halfAngle = angle/2.0f;
+				float mx = cx + cos(TWO_PI-(angle/2))*radius1;
+				float my = cy + sin(TWO_PI-(angle/2))*radius1;
+				float sx = 0, sy = 0;
+
+				for (float a = 0; a < TWO_PI; a += angle) {
+					sx = cx + cos(a) * radius2;
+					sy = cy + sin(a) * radius2;
+					line(sx,sy,mx,my);
+					mx = cx + cos(a+halfAngle) * radius1;
+					my = cy + sin(a+halfAngle) * radius1;
+					line(sx,sy,mx,my);
+				}
+				break;
+			}
+			case 17: //james bond looking thing (spiral around circle)
+			{
+				stroke(255);
+				float edges = (int) map(mouseX, 50, width, 0, 50);
+				int radius1 = 200;
+				int radius2 = 100;
+				float cx = width/2.0f;
+				float cy = height/2.0f;
+				for (float a = 1; a <= edges; a ++) {
+					float theta1 = map(a-1, 0, edges, 0, TWO_PI);
+					float x1 = cx + sin(theta1) * radius1;
+					float y1 = cy + cos(theta1) * radius1;
+
+					float theta2 = map(a, 0, edges, 0, TWO_PI);
+					float x2 = cx + sin(theta2) * radius2;
+					float y2 = cy + cos(theta2) * radius2;
 					line(x1,y1,x2,y2);
 				}
 				break;

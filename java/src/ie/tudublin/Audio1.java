@@ -21,18 +21,28 @@ public class Audio1 extends PApplet {
         minim = new Minim(this);
         ai = minim.getLineIn(Minim.MONO, width, 44100, 16);
         ab = ai.mix;
+
+        y = height
     }
 
     public void draw() {
         background(0);
         stroke(255);
         float halfH = height / 2;
+        float average = 0;
+        float sum = 0;
         for (int i = 0; i < ab.size(); i++) {
             //float c = map(ab.get(i), -1, 1, 0, 255);
             float c = map(i, 0, ab.size(), 0, 255);
             stroke(c,255,255);
             line(i, halfH, i, halfH + ab.get(i) * halfH);
+            sum += abs(ab.get(i));
         }
+        average = sum / (float) ;
+
+        stroke(255);
+        fill(100,255,255);
+        circle(width/2, halfH, average * 100);
     }
 
 }

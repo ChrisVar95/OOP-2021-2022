@@ -63,7 +63,7 @@ public class Main
     }
     public static void main(String[] args)
     {
-        audio1();
+        loops();
 
         // Tara Misty
         // Tara Tara
