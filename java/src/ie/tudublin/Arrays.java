@@ -270,7 +270,8 @@ public class Arrays extends PApplet {
                     text(months[i], x + (w/2), height - border / 2);
                 }
                 */
-                //*Pi Chart
+
+                /*Pi Chart
                 background(0);
                 float r = width *0.3f;
                 float cx = width / 2, cy = height / 2;
@@ -302,3 +303,4 @@ public class Arrays extends PApplet {
             }// end draw()
         
         }// end Arrays()
+        */
