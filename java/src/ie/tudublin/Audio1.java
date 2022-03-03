@@ -43,6 +43,8 @@ public class Audio1 extends PApplet {
         stroke(255);
         fill(100,255,255);
         circle(width/2, halfH, average * 100);
+
+        
     }
 
 }

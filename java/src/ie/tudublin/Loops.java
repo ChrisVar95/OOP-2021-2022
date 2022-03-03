@@ -368,6 +368,26 @@ public class Loops extends PApplet {
 				}
 				break;
 			}
+			case 18: //james bond looking thing (spiral around circle)
+			{
+				stroke(255);
+				float edges = (int) map(mouseX, 50, width, 0, 50);
+				int radius1 = 200;
+				int radius2 = 100;
+				float cx = width/2.0f;
+				float cy = height/2.0f;
+				for (float a = 1; a <= edges; a ++) {
+					float theta1 = map(a-1, 0, edges, 0, TWO_PI);
+					float x1 = cx + sin(theta1) * radius1;
+					float y1 = cy + cos(theta1) * radius1;
+
+					float theta2 = map(a, 0, edges, 0, TWO_PI);
+					float x2 = cx + sin(theta2) * radius2;
+					float y2 = cy + cos(theta2) * radius2;
+					line(x1,y1,x2,y2);
+				}
+				break;
+			}
 		}//end switch
 	}// end draw()
 }
