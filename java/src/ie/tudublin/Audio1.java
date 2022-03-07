@@ -76,6 +76,7 @@ public class Audio1 extends PApplet {
 
         switch (mode) {
             case 0:
+                background(0);
                 for (int i = 0; i < ab.size(); i++) {
                     // float c = map(ab.get(i), -1, 1, 0, 255);
                     float c = map(i, 0, ab.size(), 0, 255);
@@ -118,6 +119,7 @@ public class Audio1 extends PApplet {
                     px = x;
                     py = y;
                 }
+                break;
             }
             case 3: {
                 background(0);
@@ -127,7 +129,23 @@ public class Audio1 extends PApplet {
                 float c = map(smoothedAmplitude, 0, 0.5f, 0, 255);
                 stroke(c, 255, 255);
                 circle(cx, cy, r);
-
+                break;
+            }
+            case 4: {
+                
+                background(0);
+                strokeWeight(2);
+                for (int i = 0; i < ab.size(); i+=10) {
+                    // float c = map(ab.get(i), -1, 1, 0, 255);
+                    float c = map(i, 0, ab.size(), 0, 255);
+                    stroke(c, 255, 255);
+                    float f = lerpedBuffer[i] * halfH * 4.0f;
+                    line(i, halfH + f, i, halfH - f);
+                    fill(c);
+                    circle(i, halfH + f, 5);
+                    circle(i, halfH - f, 5);
+                }
+                break;
             }
         }
 
