@@ -8,6 +8,13 @@ public class Main
 		String[] a = {"MAIN"};
         processing.core.PApplet.runSketch( a, new HelloProcessing());
     }
+
+    public static void life()
+	{
+		String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new Life());
+    }
+
     public static void audio1()
 	{
 		String[] a = {"MAIN"};
@@ -63,7 +70,7 @@ public class Main
     }
     public static void main(String[] args)
     {
-        audio1();
+        life();
 
         // Tara Misty
         // Tara Tara
