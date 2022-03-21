@@ -9,18 +9,6 @@ public class Main
         processing.core.PApplet.runSketch( a, new HelloProcessing());
     }
 
-    public static void life()
-	{
-		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new Life());
-    }
-
-    public static void audio1()
-	{
-		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new Audio1());
-    }
-    
     public static void Arrays()
 	{
 		String[] a = {"MAIN"};
@@ -43,6 +31,19 @@ public class Main
 	{
 		String[] a = {"MAIN"};
         processing.core.PApplet.runSketch( a, new Arrays());
+    }
+
+    public static void life()
+	{
+		String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new Life());
+    }
+
+
+    public static void audio1()
+	{
+		String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new Audio1());
     }
 
     public void cat()
