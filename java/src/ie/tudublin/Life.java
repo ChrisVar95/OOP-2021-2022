@@ -7,12 +7,13 @@ public class Life extends PApplet {
 	LifeBoard board;
 	int screensize = 500;
 	int mode = 0;
-	public void settings() {
-		size(screensize, screensize);
-		board = new LifeBoard((int)screensize/3, this);
-		board.randomise();
-		println(board.countCellsAround(1, 1));
 
+
+	public void settings() {
+		size(1000, 1000);
+		board = new LifeBoard(200, this);
+		//board.randomise();
+		println(board.countCellsAround(1, 1));
 	}
 
 	public void setup() {

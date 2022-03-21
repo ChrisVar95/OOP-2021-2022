@@ -18,7 +18,7 @@ public class LifeBoard {
         cellSize = pa.width / (float) size;
     }
 
-    public void randomise() //randomises board
+    public void randomise()
     {
         for(int row = 0 ; row < size ; row ++)
         {
@@ -29,22 +29,7 @@ public class LifeBoard {
         }
     }
 
-    public void cross()
-    {
-        for(int row = 0 ; row < size ; row ++)
-        {
-            for(int col = 0 ; col < size ; col ++)
-            {
-                if(col == size/2 || row == size/2){
-                    board[row][col] = true;
-                }else{
-                    board[row][col] = false;
-                }
-            }
-        }
-    }
-
-    public void update() //updates the board
+    public void update()
     {
         // If cell is alive
         // 2 -3 - Survives
@@ -87,7 +72,7 @@ public class LifeBoard {
         next = temp;
     }
 
-    public int countCellsAround(int row, int col) //counts cells
+    public int countCellsAround(int row, int col)
     {
         int count = 0;
 
@@ -110,7 +95,8 @@ public class LifeBoard {
         return count;
     }
 
-    public void setAlive(int row, int col, boolean alive){
+    public void setAlive(int row, int col, boolean alive)
+    {
         if (row >= 0 && row < size && col >= 0 && col < size)
         {
             board[row][col] = alive;
