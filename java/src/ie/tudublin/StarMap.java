@@ -10,7 +10,6 @@ public class StarMap extends PApplet {
 
     ArrayList<Star> stars = new ArrayList<>(); // <> is a generic type and it is an array list that "will hold stars"
     float border;
-
     
     void drawGrid()
     {

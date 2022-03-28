@@ -6,13 +6,13 @@ public class Star {
     private boolean hab;
     private String displayName;
     private float distance;
-    private float Xg, Yg, Zg;
+    private float xG, yG, zG;
     private float absMag;
 
     @Override //this method overrides a method in the superclass java
     public String toString() {
-        return "Star [Xg=" + Xg + ", Yg=" + Yg + ", Zg=" + Zg + ", absMag=" + absMag + ", displayName=" + displayName
-                + ", distance=" + distance + ", hab=" + hab + "]";
+        return "Star [absMag=" + absMag + ", displayName=" + displayName + ", distance=" + distance + ", hab=" + hab
+        + ", xG=" + xG + ", yG=" + yG + ", zG=" + zG + "]";
     }
 
     public Star(TableRow tr){
@@ -26,16 +26,17 @@ public class Star {
             tr.getFloat("AbsMag")
         );
     }
-
-    public Star(boolean hab, String displayName, float distance, float xg, float yg, float zg, float absMag) {
-        this.hab = hab; //disambiguating
+        
+    public Star(boolean hab, String displayName, float distance, float xG, float yG, float zG, float absMag) {
+        this.hab = hab;
         this.displayName = displayName;
         this.distance = distance;
-        Xg = xg;
-        Yg = yg;
-        Zg = zg;
+        this.xG = xG;
+        this.yG = yG;
+        this.zG = zG;
         this.absMag = absMag;
     }
+
 
     public void render(){
     }
@@ -58,23 +59,23 @@ public class Star {
     public void setDistance(float distance) {
         this.distance = distance;
     }
-    public float getXg() {
-        return Xg;
+    public float getxG() {
+        return xG;
     }
-    public void setXg(float xg) {
-        Xg = xg;
+    public void setxG(float xG) {
+        this.xG = xG;
     }
-    public float getYg() {
-        return Yg;
+    public float getyG() {
+        return yG;
     }
-    public void setYg(float yg) {
-        Yg = yg;
+    public void setyG(float yG) {
+        this.yG = yG;
     }
-    public float getZg() {
-        return Zg;
+    public float getzG() {
+        return zG;
     }
-    public void setZg(float zg) {
-        Zg = zg;
+    public void setzG(float zG) {
+        this.zG = zG;
     }
     public float getAbsMag() {
         return absMag;
@@ -82,4 +83,7 @@ public class Star {
     public void setAbsMag(float absMag) {
         this.absMag = absMag;
     }
+
+    
+    
 }
