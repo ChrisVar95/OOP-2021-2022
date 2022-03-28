@@ -9,6 +9,7 @@ public class Life extends PApplet {
 	int mode = 0;
 
 
+
 	public void settings() {
 		size(1000, 1000);
 		board = new LifeBoard(200, this);
