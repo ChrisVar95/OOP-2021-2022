@@ -9,7 +9,7 @@ import processing.data.TableRow;
 public class StarMap extends PApplet {
 
     ArrayList<Star> stars = new ArrayList<>(); // <> is a generic type and it is an array list that "will hold stars"
-    float border;
+    public float border;
     
     void drawGrid()
     {
@@ -20,7 +20,7 @@ public class StarMap extends PApplet {
             float x = map(i, -5, 5, border, width - border);
             line(x, border, x, height-border);
             line(border, x, width - border, x);
-            fill(255);
+            fill(255, 0, 255);
             text(i,x,border*0.5f);
             text(i,border*0.5f,x);
         }
@@ -61,11 +61,16 @@ public class StarMap extends PApplet {
 
     public void drawStars()
     {
+        for(Star s:stars)
+        {
+            s.render(this);
+        }
     }
 
     public void draw() 
     {
         background(0);
         drawGrid();
+        drawStars();
     }
 }
