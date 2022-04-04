@@ -107,7 +107,7 @@ public class StarMap extends PApplet {
 
                 float dist = dist(first.getxG(), first.getyG(), first.getzG(), second.getxG(), second.getyG(), second.getzG());
                 textAlign(CENTER, CENTER);
-                text("Distance between " + first.getDisplayName() + " and " + second.getDisplayName() + " is " + dist + " parsecs", width/2, height/2);
+                text("Distance between " + first.getDisplayName() + " and " + second.getDisplayName() + " is " + dist + " parsecs", width/2, height - border/2);
             }else{
                 stroke(255,255, 0);
                 line(x, y, mouseX, mouseY);
