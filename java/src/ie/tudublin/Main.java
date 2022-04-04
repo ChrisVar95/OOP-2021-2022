@@ -58,6 +58,12 @@ public class Main
         processing.core.PApplet.runSketch( a, new ColorfulLife());
     }
 
+    public static void YASC()
+	{
+		String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new YASC());
+    }
+
     public void cat()
     {
         System.out.println("Hello world");
@@ -83,7 +89,7 @@ public class Main
     }
     public static void main(String[] args)
     {
-        starMap();
+        YASC();
 
         // Tara Misty
         // Tara Tara
