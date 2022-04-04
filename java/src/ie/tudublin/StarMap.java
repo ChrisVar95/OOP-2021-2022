@@ -55,7 +55,7 @@ public class StarMap extends PApplet {
         for(Star s:stars)
         {
             float x = map(s.getxG(), -5, 5, border, width -border);
-            float y = map(s.getyG(), -5, 5, border, width -border);
+            float y = map(s.getyG(), -5, 5, border, height -border);
             if(dist(mouseX, mouseY, x, y) < s.getAbsMag()){
                 if(first == null){
                     first = s;
@@ -96,11 +96,11 @@ public class StarMap extends PApplet {
         
         if(first != null){
             float x = map(first.getxG(), -5, 5, border, width -border);
-            float y = map(first.getyG(), -5, 5, border, width -border);
+            float y = map(first.getyG(), -5, 5, border, height -border);
             
             if(second != null){
                 float x2 = map(second.getxG(), -5, 5, border, width -border);
-                float y2 = map(second.getyG(), -5, 5, border, width -border);
+                float y2 = map(second.getyG(), -5, 5, border, height -border);
                 
                 stroke(255,255, 0);
                 line(x, y, x2, y2);
