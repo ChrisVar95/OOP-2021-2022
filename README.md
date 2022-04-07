@@ -23,8 +23,8 @@ Resources
 - [Assignments](assignments.md)
 
 - Week 5 - Teams Submission
-- Week 11 Lab Test 20% 
-- Week 13 Assignment Submission - 30%
+- 27 April - Lab Test 20% 
+- 4th May Assignmemnt Submission - 30%
 - End of Year exam - 50%
 
 # Last years course
@@ -38,6 +38,12 @@ Resources
 - https://github.com/skooter500/OOP-2018-Lab-Test-2
 - https://github.com/skooter500/OOP_Labtest1_2017_Starter
 - https://github.com/skooter500/OOP-LabTest1-2016
+
+## Week 11 - YASC Part 1
+- [Recording of the class](https://tudublin-my.sharepoint.com/:v:/g/personal/bryan_duggan_tudublin_ie/Edu2JUxUJnpNk0DJum_UHIoBNnXLW71f-De16xyCEu9L-w?e=orgOaw)
+
+## Lab
+- Work on your assignments!
 
 ## Week 10 - Loading and visualising a dataset - Star Map example
 - [Recording of the class](https://tudublin-my.sharepoint.com/:v:/g/personal/bryan_duggan_tudublin_ie/EcgrS0Sh8v1CgiN9-HHlXBkBs7LHTxG8L08S1HLac0QKfQ?e=9Vxemq)
