@@ -14,7 +14,7 @@ public class YASC extends PApplet
     {
         p = new Player(250, 250, 50, this);
         p1 = new Player(50, 50, 100, this);
-        h = new Health()
+        h = new Health(50, this);
     }
 
     public void settings()
@@ -32,5 +32,6 @@ public class YASC extends PApplet
         p1.render();
 
         h.update();
+        h.render();
     }    
 }
