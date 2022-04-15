@@ -63,6 +63,11 @@ public class Main
 		String[] a = {"MAIN"};
         processing.core.PApplet.runSketch( a, new YASC());
     }
+    public static void timing()
+	{
+		String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new TimingExample());
+    }
 
     public void cat()
     {
@@ -89,7 +94,7 @@ public class Main
     }
     public static void main(String[] args)
     {
-        YASC();
+        timing();
 
         // Tara Misty
         // Tara Tara
